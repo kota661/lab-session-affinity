@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: inmemory
+  name: inmemory
+spec:
+  replicas: 1 # 3
+  selector:
+    matchLabels:
+      app: inmemory
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: inmemory
+    spec:
+      containers:
+        - image: kota661/session-in-memory:latest
+          name: session-in-memory
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 250m
+              memory: 512Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: inmemory
+  name: inmemory
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+      nodePort: 30001
+  selector:
+    app: inmemory
+  type: NodePort
+  # sessionAffinity: ClientIP
+status:
+  loadBalancer: {}

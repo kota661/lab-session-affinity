@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Session Sample</title>
+</head>
+
+<body>
+    <h1>Session Sample - in Memory</h1>
+    <p>Session ID: <span th:text="${sessionId}"></span></p>
+    <p>Hostname: <span th:text="${hostname}"></span></p>
+    <p>Access Count: <span th:text="${accessCount}"></span></p>
+    <p>Value: <span th:text="${sessionValue}"></span></p>
+    <p>Date: <span th:text="${sessionDate}"></span></p>
+    <form action="#" th:action="@{/setSession}" method="post">
+        <input type="text" name="value" placeholder="Enter session value">
+        <button type="submit">Set Session</button>
+    </form>
+    <a th:href="@{/clearSession}">Clear Session</a>
+</body>
+
+</html>
