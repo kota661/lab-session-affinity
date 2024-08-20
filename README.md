@@ -34,6 +34,7 @@
 ## 0. サンプルコードの取得
   ```
   git clone https://github.com/kota661/lab-session-affinity.git
+  cd lab-session-affinity
   ```
 
 
