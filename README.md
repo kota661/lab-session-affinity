@@ -31,6 +31,10 @@
 4. Redis版のアプリを１Pod＋Redisで起動させ正常な動作を確認
 5. Redis版のアプリをReplicas 3にして正常に動作することを体験
 
+## 0. サンプルコードの取得
+  ```
+  git clone https://github.com/kota661/lab-session-affinity.git
+  ```
 
 
 ## 1. InMemory版のアプリを１Podで起動させ正常な動作を確認
